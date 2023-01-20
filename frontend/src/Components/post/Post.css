@@ -1,0 +1,166 @@
+.post {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 2px 2px 15px 2px rgba(77, 77, 77, 0.68);
+  -webkit-box-shadow: 2px 2px 15px 2px rgba(77, 77, 77, 0.68);
+  -moz-box-shadow: 2px 2px 15px 2px rgba(77, 77, 77, 0.68);
+  margin: 30px 0px;
+}
+
+.postWrapper {
+  padding: 10px;
+}
+
+.postTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.postProfileImg {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.postTopLeft {
+  display: flex;
+  align-items: center;
+}
+
+.postUsername {
+  margin-right: 10px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.postDate {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.postCenter {
+  margin: 20px 0px;
+}
+
+.postBottom {
+  margin: 10px 0px;
+}
+.postBottomLeft {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+
+.likeCount {
+  margin-right: 20px;
+}
+
+.postBottomIcon {
+  margin-right: 5px;
+}
+
+.postCenterImg {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.DialogBox {
+  min-width: 500px;
+  height: 100vh;
+  padding: 2vmax;
+}
+
+.postBottomdiv {
+  display: flex;
+  align-items: center;
+}
+
+.likedBy {
+  margin: 10px;
+}
+
+.commentForm {
+  display: flex;
+  margin: 1vmax;
+}
+.commentForm > input {
+  width: 80%;
+  padding: 1vmax 2vmax;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.288);
+  border-radius: 30px;
+  font: 100 "Roboto", sans-serif;
+  margin-right: 10px;
+}
+.commentForm > button {
+  border-radius: 20px;
+  background-color: white;
+  width: 10%;
+  font-weight: 500;
+  font-size: 14px;
+  border: none;
+  color: blue;
+}
+
+.commentsHeading {
+  font-size: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+  .post {
+    margin-top: 5px;
+    width: 80%;
+  }
+
+  .postBottom {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .postBottomLeft {
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: space-around;
+  }
+
+  .postBottomIcon {
+    size: 4px;
+
+    margin-right: 2px;
+  }
+
+  .likeCount {
+    font-size: 10px;
+    display: flex;
+    margin-right: 0px;
+  }
+  .postBottomdiv {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .postCenter {
+    /* margin: 10px; */
+  }
+
+  .DialogBox {
+    min-width: 70vw;
+    height: 100vh;
+    padding: 2vmax;
+  }
+
+  .commentForm > input {
+    width: 80%;
+  }
+
+  .commentForm {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

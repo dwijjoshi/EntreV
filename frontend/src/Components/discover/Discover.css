@@ -1,0 +1,26 @@
+.discover {
+  flex: 5;
+}
+
+.discoverPosts {
+  width: 70%;
+}
+
+.discoverLogo {
+  font-size: 18px;
+  margin: 20px;
+  font-weight: 500;
+}
+
+@media only screen and (max-width: 600px) {
+  .discoverPosts {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .discoverLogo {
+    text-align: center;
+  }
+}
