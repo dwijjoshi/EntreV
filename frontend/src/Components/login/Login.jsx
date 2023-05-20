@@ -37,7 +37,10 @@ export default function Login() {
           <span className="loginDesc">Social media for Entrepreneurs.</span>
         </div>
         <div className="loginRight">
-          <form className="loginBox" onSubmit={loginHandler}>
+          <form
+            className="flex flex-col gap-y-5 bg-white p-10 rounded-2xl"
+            onSubmit={loginHandler}
+          >
             <input
               placeholder="Email"
               className="loginInput"
@@ -55,11 +58,13 @@ export default function Login() {
               onChange={(e) => setPassword(e.target.value)}
             />
 
-            <button type="submit" className="loginButton">
+            <button type="submit" className="loginButton ">
               Log In
             </button>
             <Link to="/forgot/password">
-              <span className="loginForgot">Forgot Password?</span>
+              <div className=" text-right">
+                <span className="">Forgot Password?</span>
+              </div>
             </Link>
             <Link to="/register">
               <button className="loginRegisterButton">

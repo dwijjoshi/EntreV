@@ -75,6 +75,10 @@
   width: 70%;
 }
 
+.accountAvatar {
+  height: "130px";
+  width: "130px";
+}
 @media only screen and (max-width: 600px) {
   .account {
     width: 100%;
@@ -117,8 +121,8 @@
   }
 
   .topRightFollow {
-    width: 100%;
-    margin-right: 10px;
+    width: 90%;
+    margin-right: 0px;
   }
 
   .accountWrapper {
@@ -126,9 +130,16 @@
     width: 100%;
     padding: 10px 0px;
     padding-bottom: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 
   .accountPosts {
     width: 100%;
+  }
+
+  .accountAvatar {
+    height: "130px";
+    width: "130px";
   }
 }

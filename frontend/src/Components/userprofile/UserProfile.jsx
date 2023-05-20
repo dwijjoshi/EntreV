@@ -100,7 +100,7 @@ const UserProfile = () => {
               <div className="accountTopLeft">
                 <Avatar
                   src={user.avatar.url}
-                  sx={{ height: "130px", width: "130px" }}
+                  sx={{ height: "90px", width: "90px" }}
                 />
               </div>
               <div className="accountTopRight">

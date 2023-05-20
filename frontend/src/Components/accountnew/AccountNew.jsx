@@ -55,7 +55,8 @@ const AccountNew = () => {
           <div className="accountTopLeft">
             <Avatar
               src={user.avatar.url}
-              sx={{ height: "130px", width: "130px" }}
+              className="accountAvatar"
+              sx={{ height: "90px", width: "90px" }}
             />
           </div>
           <div className="accountTopRight">

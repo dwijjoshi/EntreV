@@ -3,14 +3,22 @@ import { MoreVert, DeleteOutline, Favorite } from "@mui/icons-material";
 import CommentIcon from "@mui/icons-material/Comment";
 import ShareIcon from "@mui/icons-material/Share";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
+import BookmarkIcon from "@mui/icons-material/Bookmark";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { useDispatch, useSelector } from "react-redux";
 import "./Post.css";
 import { Dialog } from "@mui/material";
 
 import { Link, useParams } from "react-router-dom";
-import { addCommentonPost, deletePost, likePost } from "../../Actions/Post";
 import {
+  addCommentonPost,
+  bookmarkPost,
+  deletePost,
+  likePost,
+  showBookmark,
+} from "../../Actions/Post";
+import {
+  getAllPosts,
   getFollowingPosts,
   getMyPosts,
   getUserPosts,
@@ -39,6 +47,7 @@ const Post = ({
   const [likesUser, setLikesUser] = useState(false);
   const [commentValue, setCommentValue] = useState("");
   const [commentToggle, setCommentToggle] = useState(false);
+  const [bookmark, setBookmark] = useState(false);
 
   const addCommentHandler = async (e) => {
     e.preventDefault();
@@ -81,6 +90,14 @@ const Post = ({
     dispatch(loadUser());
   };
 
+  const bookmarkHandler = async () => {
+    setBookmark(!bookmark);
+    await dispatch(bookmarkPost(postId));
+    dispatch(getAllPosts());
+    dispatch(showBookmark());
+    dispatch(loadUser());
+  };
+
   const { user } = useSelector((state) => state.user);
 
   useEffect(() => {
@@ -90,6 +107,14 @@ const Post = ({
       }
     });
   }, [likes, user._id]);
+
+  useEffect(() => {
+    user.bookmark.forEach((item) => {
+      if (item === postId) {
+        setBookmark(true);
+      }
+    });
+  }, [user.bookmark, postId]);
 
   return (
     <div className="post">
@@ -152,8 +177,12 @@ const Post = ({
                 {comments.length} Comment
               </span>
             </div>
-            <div className="postBottomdiv">
-              <BookmarkBorderIcon className="postBottomIcon" />
+            <div onClick={bookmarkHandler} className="postBottomdiv">
+              {bookmark ? (
+                <BookmarkIcon className="postBottomIcon" />
+              ) : (
+                <BookmarkBorderIcon className="postBottomIcon" />
+              )}
 
               <span className="likeCount">Bookmark</span>
             </div>

@@ -74,6 +74,77 @@ exports.deletePost = async (req, res) => {
   }
 };
 
+exports.bookmarkPost = async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id).populate(
+      "owner likes comments.user"
+    );
+    if (!post) {
+      return res.status(404).json({
+        success: false,
+        message: "Post not found",
+      });
+    }
+    const user = await User.findById(req.user._id);
+
+    if (user.bookmark.includes(post._id)) {
+      const index = user.bookmark.indexOf(post._id);
+      user.bookmark.splice(index, 1);
+      await user.save();
+      console.log("Removed");
+      return res.status(200).json({
+        success: true,
+        message: "Bookmark Removed",
+      });
+    } else {
+      const user = await User.findById(req.user._id);
+      console.log("Added");
+      console.log(post);
+
+      user.bookmark.push(post._id);
+
+      await user.save();
+      return res.status(200).json({
+        success: true,
+        message: "Post bookmarked.",
+      });
+    }
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+exports.showBookmarks = async (req, res) => {
+  try {
+    const user = await User.findById(req.user._id);
+    const savedPosts = [user.bookmark];
+
+    // user.bookmark.map(async (bm) => {
+    //   const posts = await Post.findById(bm);
+
+    //   savedPosts.push(posts);
+    // });
+    const posts = await Post.find({ _id: { $in: user.bookmark } }).populate(
+      "owner likes comments.user"
+    );
+
+    console.log(posts);
+
+    return res.status(200).json({
+      success: true,
+      posts,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
 exports.likeAndUnlikePost = async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);

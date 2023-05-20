@@ -49,12 +49,15 @@ const Register = () => {
           </span>
         </div>
         <div className="loginRight">
-          <form className="loginBox" onSubmit={submitHandler}>
+          <form
+            className="flex flex-col justify-between gap-y-5"
+            onSubmit={submitHandler}
+          >
             <div className="registerAvatar">
               <Avatar
                 src={avatar}
                 alt="User"
-                sx={{ height: "10vmax", width: "10vmax", margin: "10px" }}
+                sx={{ height: "8vmax", width: "8vmax", margin: "10px" }}
               />
               <input
                 type="file"

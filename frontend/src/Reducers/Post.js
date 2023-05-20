@@ -15,6 +15,31 @@ export const likeReducer = createReducer(initialState, {
     state.error = action.payload;
   },
 
+  bookmarkRequest: (state) => {
+    state.loading = true;
+  },
+  bookmarkSuccess: (state, action) => {
+    state.loading = false;
+    state.message = action.payload;
+  },
+  bookmarkFailure: (state, action) => {
+    state.loading = false;
+    state.error = action.payload;
+  },
+
+  showBookmarkRequest: (state) => {
+    state.loading = true;
+  },
+  showBookmarkSuccess: (state, action) => {
+    state.loading = false;
+
+    state.posts = action.payload;
+  },
+  showBookmarkFailure: (state, action) => {
+    state.loading = false;
+    state.error = action.payload;
+  },
+
   addCommentRequest: (state) => {
     state.loading = true;
   },

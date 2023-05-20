@@ -19,6 +19,46 @@ export const likePost = (id) => async (dispatch) => {
   }
 };
 
+export const bookmarkPost = (id) => async (dispatch) => {
+  try {
+    dispatch({
+      type: "bookmarkRequest",
+    });
+    const { data } = await axios.post(`/api/v1/post/${id}`, {
+      headers: { "Content-Type": "application/json" },
+    });
+
+    dispatch({
+      type: "bookmarkSuccess",
+      payload: data.message,
+    });
+  } catch (error) {
+    dispatch({
+      type: "bookmarkFailure",
+      payload: error.response.data.message,
+    });
+  }
+};
+
+export const showBookmark = () => async (dispatch) => {
+  try {
+    dispatch({
+      type: "showBookmarkRequest",
+    });
+    const { data } = await axios.get(`/api/v1/bookmark`);
+
+    dispatch({
+      type: "showBookmarkSuccess",
+      payload: data.posts,
+    });
+  } catch (error) {
+    dispatch({
+      type: "showBookmarkFailure",
+      payload: error.response.data.message,
+    });
+  }
+};
+
 export const addCommentonPost = (id, comment) => async (dispatch) => {
   try {
     dispatch({

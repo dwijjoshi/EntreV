@@ -13,6 +13,7 @@ import AccountNew from "./Components/accountnew/AccountNew";
 import UserProfile from "./Components/userprofile/UserProfile";
 import Search from "./Components/search/Search";
 import Discover from "./Components/discover/Discover";
+import Saved from "./Components/saved/Saved";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -55,6 +56,11 @@ const App = () => {
           <Route
             path="/discover"
             element={isAuthenticated ? <Discover /> : <Login />}
+          />
+
+          <Route
+            path="/saved"
+            element={isAuthenticated ? <Saved /> : <Login />}
           />
         </Routes>
 

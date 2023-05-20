@@ -60,7 +60,7 @@ const Home = () => {
             />
           ))
         ) : (
-          <div>No post yet</div>
+          <div className="text-center mt-10 text-2xl">No post yet</div>
         )}
       </div>
       <div className="allUsers">

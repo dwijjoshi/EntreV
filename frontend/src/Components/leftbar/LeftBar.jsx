@@ -61,14 +61,16 @@ const LeftBar = () => {
               <span className="sidebarListItemText">Discover</span>
             </li>
           </Link>
-          <li className="sidebarListItem">
-            <ChatBubbleOutlineIcon className="sidebarIcon" />
-            <span className="sidebarListItemText">Messages</span>
-          </li>
-          <li className="sidebarListItem">
-            <NotificationsNoneIcon className="sidebarIcon" />
-            <span className="sidebarListItemText">Notifications</span>
-          </li>
+
+          <Link
+            to="/saved"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <li className="sidebarListItem">
+              <BookmarkBorderIcon className="sidebarIcon" />
+              <span className="sidebarListItemText">Saved Posts</span>
+            </li>
+          </Link>
           {/* <li className="sidebarListItem">
             <BookmarkBorderIcon className="sidebarIcon" />
             <span className="sidebarListItemText">Saved</span>
@@ -93,6 +95,9 @@ const LeftBar = () => {
         </Link>
         <Link to="/newpost">
           <AddCircleOutlineIcon />
+        </Link>
+        <Link to="/saved">
+          <BookmarkBorderIcon />
         </Link>
         <Link to="/account">
           <AccountCircleIcon />

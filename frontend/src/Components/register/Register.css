@@ -46,7 +46,7 @@
 .registerAvatar > input[type="file"] {
   width: 100%;
   border-radius: 30px;
-  margin: 2vmax;
+  margin: 1vmax;
 }
 
 .registerAvatar > input[type="file"]::-webkit-file-upload-button {

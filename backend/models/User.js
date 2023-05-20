@@ -46,6 +46,12 @@ const userSchema = new mongoose.Schema({
       ref: "User",
     },
   ],
+
+  bookmark: [
+    {
+      type: String,
+    },
+  ],
 });
 
 userSchema.pre("save", async function (next) {
